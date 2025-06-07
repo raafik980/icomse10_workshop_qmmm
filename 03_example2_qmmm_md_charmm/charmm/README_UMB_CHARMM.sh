@@ -26,9 +26,10 @@ rc_mid=$(awk "BEGIN {print (${rci} + ${rcf})/2}")
 winmax=$(awk "BEGIN {print int(((${rcf} - ${rci})/${rcdel}) + 1)}")
 
 # Production Specs
-cntmax=5 #MAXIMUM NUMBER OF CHUNKS PER WINDOW
+#winmax=${win} #UNCOMMENT IF RUNNING ONLY ONE WINDOW 
 win=1 #CHANGE HERE IF COUNTINUING STARTING WINDOW
 cnt=1  #CHANGE HERE IF COUNTINUING A RUN AT SPECIFIC COUNTER IN ${win}
+cntmax=1 #MAXIMUM NUMBER OF CHUNKS PER WINDOW
 
 
 for ((i=$win;i<=$winmax;i++)); do

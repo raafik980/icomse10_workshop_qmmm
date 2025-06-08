@@ -54,7 +54,7 @@ winmax=$(awk "BEGIN {print int(((${rcf} - ${rci})/${rcdel}) + 1)}")
 # Production
 win=1 #CHANGE HERE IF COUNTINUING STARTING WINDOW
 #winmax=${win} #UNCOMMENT IF RUNNING ONLY ONE WINDOW 
-cnt=1  #CHANGE HERE IF COUNTINUING A RUN AT SPECIFIC COUNTER IN ${win}
+icnt=1  #CHANGE HERE IF COUNTINUING A RUN AT SPECIFIC COUNTER IN ${win}
 cntmax=1 #MAXIMUM NUMBER OF CHUNKS PER WINDOW
 
 export mdqrst=""
@@ -64,6 +64,7 @@ export mdrc=""
 export mdkumb=""
 
 for ((i=$win;i<=$winmax;i++)); do
+    cnt=${icnt}  
     while [ $cnt -le $cntmax ]; do
         pcnt=$(( cnt - 1 ))
         pwin=$(( i - 1 ))

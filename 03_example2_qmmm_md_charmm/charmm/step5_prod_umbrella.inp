@@ -78,7 +78,7 @@ rxncor: define d23 distance A2 A3 !distance
 
 rxncor: define mycv combi d12 1.0 d23 -1.0  !! 'mycv' is r(C19(D)-H24(D)) - r(H24(D)-C4(B))
 rxncor: set nrxn 1  mycv
-rxncor: trace mycv unit 52
+rxncor: trace mycv unit 51
 rxncor: umbrella name mycv form 1 kumb @mdkumb del0 @mdrc
 
 

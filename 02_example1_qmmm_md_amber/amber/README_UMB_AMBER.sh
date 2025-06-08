@@ -67,9 +67,9 @@ for ((i=$win;i<=$winmax;i++)); do
     while [ $cnt -le $cntmax ]; do
         pcnt=$(( cnt - 1 ))
         pwin=$(( i - 1 ))
-        rc=$(awk "BEGIN {print ${rci} + ((${i} - 1) * ${rcdel})}")
-        scale=$(awk "BEGIN {print 1 - ((2*($rc - $rc_mid)/($rcf - $rci))^2)}")
-        kumb=$(awk "BEGIN {print $kmin + ($kmax - $kmin)*$scale}")
+        rc=$(awk "BEGIN {printf \"%.2f\", ${rci} + ((${i} - 1) * ${rcdel})}")
+        scale=$(awk "BEGIN {printf \"%.6f\", 1 - ((2*($rc - $rc_mid)/($rcf - $rci))^2)}")
+        kumb=$(awk "BEGIN {printf \"%.2f\", $kmin + ($kmax - $kmin)*$scale}")
         istep=${prod_step}_window_${i}_${cnt}
         
         if   [[ ${cnt} -eq 1 && ${i} -eq 1 ]]; then

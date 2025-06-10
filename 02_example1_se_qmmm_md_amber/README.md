@@ -78,7 +78,8 @@ wget <github link>
 cd icomse_knam_session
 mkdir ex1_amber_seqmmm
 ```
-### 2. Copy the CHARMM-GUI QM/MM Interfacer template files to the working directory in the remote machine
+### 2.2 Copy the CHARMM-GUI QM/MM Interfacer template files to the working directory in the remote machine
+- **execute the command from local/personal machine**
 ```bash
 scp -r <extracted_charmm_gui_folder_after_modification> <username>@<remote_machine>:/path/to/icomse_knam_session/ex1_amber_seqmmm
 ```
@@ -202,7 +203,11 @@ cntmax=5 #MAXIMUM NUMBER OF CHUNKS PER WINDOW
 ### 6. Run the bash control file in the remote machine for running production QM/MM MD simulation
 ```bash
 cd icomse_knam_session/ex1_amber_seqmmm/charmm-gui-*/amber
-nohup ./README_PROD_AMBER.sh ${win} > README_PROD_AMBER.log 2>&1
+nohup ./README_PROD_AMBER.sh 1 > README_PROD_AMBER.log 2>&1
+nohup ./README_PROD_AMBER.sh 2 >> README_PROD_AMBER.log 2>&1
+nohup ./README_PROD_AMBER.sh 3 >> README_PROD_AMBER.log 2>&1
+..
+..
 ```
 - **If using SLURM, Note**: If you are running this on a remote machine with a job scheduler like SLURM, you can create a SLURM script to submit the job. See the example below for file name 'submit_prod_amber.slurm'.
 ```bash

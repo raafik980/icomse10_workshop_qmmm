@@ -5,7 +5,7 @@
 charmm="charmm"
 equi_prefix="step4_equilibration"
 qmpr_prefix="step4.1_qmmmprep"
-prod_prefix="step5_prod_umbrella"
+prod_prefix="step5_production"
 prod_step="step5"
 qmpackage="mndo97"
 

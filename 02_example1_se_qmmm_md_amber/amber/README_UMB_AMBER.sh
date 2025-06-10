@@ -13,16 +13,21 @@
 # If you are willing to use "sander" for your simulation, please remove "&end" line in all minimization / equilibration
 # inputs.
 
+# Activate your conda environment
+eval "$(/scratch/<your_username>/icomse_knam_session/miniconda3/bin/conda shell.bash hook)"
+conda activate knamsessionenv
+module load openmpi-5*
+source $CONDA_PREFIX/amber.sh
+
 # Set executable
-amber="sander"
+amber="mpirun -np 12 sander.MPI"
 # amber="mpirun -np 4 pmemd.MPI"
 
 # Set input/output filenames
 init="step3_input"
 mini_prefix="step4.0_minimization"
 equi_prefix="step4.1_equilibration"
-prod_prefix="step5_prod_umbrella"
-cv_prefix="cv"
+prod_prefix="step5_production"
 prod_step="step5"
 cur_folder="$PWD"
 
@@ -45,7 +50,7 @@ $amber -O -i "${equi_prefix}.mdin" -p "${init}.parm7" -c "${mini_prefix}.rst7" -
 rci=-2.0 #initial
 rcf=2.0  #final
 rcdel=0.1
-kmin=20
+kmin=150 #20
 kmax=150
 
 rc_mid=$(awk "BEGIN {print (${rci} + ${rcf})/2}")

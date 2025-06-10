@@ -52,7 +52,7 @@ rci=-2.0 #initial
 rcf=2.0  #final
 rcdel=0.1
 
-kmin=20
+kmin=150 #20
 kmax=150
 rc_mid=$(awk "BEGIN {print (${rci} + ${rcf})/2}")
 
@@ -68,9 +68,9 @@ for ((i=$win;i<=$winmax;i++)); do
     while [ $cnt -le $cntmax ]; do
         pcnt=$(( cnt - 1 ))
         pwin=$(( i - 1 ))
-        rc=$(awk "BEGIN {print ${rci} + ((${i} - 1) * ${rcdel})}")
+        rc=$(awk "BEGIN {printf \"%.2f\", ${rci} + ((${i} - 1) * ${rcdel})}")
         scale=$(awk "BEGIN {print 1 - ((2*($rc - $rc_mid)/($rcf - $rci))^2)}")
-        kumb=$(awk "BEGIN {print $kmin + ($kmax - $kmin)*$scale}")
+        kumb=$(awk "BEGIN {printf \"%.2f\", $kmin + ($kmax - $kmin)*$scale}")
         istep=${prod_step}_window_${i}_${cnt}
 
 	    export mdi=$i

@@ -12,7 +12,7 @@
 mkdir icomse_knam_session_local
 cd icomse_knam_session_local
 ```
-### 1.1. Install PyMOL and VMD on the personal computer *(not on remote machine)*
+### 1.1. Install PyMOL, VMD and WHAM on the personal computer *(not on remote machine)*
 
 - **You will need a base anaconda/miniconda installation: see [Anaconda installation guide](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).**
 
@@ -31,14 +31,25 @@ bash Miniconda3-latest-Linux-x86_64.sh
 ```bash
 eval "$(/path/to/icomse_knam_session_local/miniconda3/bin/conda shell.bash hook)"  # Change path accordingly
 conda activate
-conda create -n pymolvmdenv
-conda activate pymolvmdenv
+conda create -n analysisenv
+conda activate analysisenv
 conda install -y -c conda-forge mamba
-mamba install -y -c conda-forge pymol-open-source vmd
+mamba install -y -c conda-forge pymol-open-source vmd matplotlib numpy ipython ipykernel 
 ```
 
----
+- **Install WHAM (Weighted Histogram Analysis Method) for free energy calculations**:
 
+```bash
+cd icomse_knam_session_local
+wget http://membrane.urmc.rochester.edu/sites/default/files/wham/wham-release-2.1.0.tgz
+tar -xvzf wham-release-2.1.0.tgz
+cd wham-release-2.1.0
+mkdir build
+cd build
+cmake ..
+cmake --build
+---
+```
 ### 1.2. Download CHARMM and copy the source code to the remote machine
 
 - **Visit [academiccharmm.org](https://academiccharmm.org)**
@@ -79,11 +90,11 @@ bash Miniconda3-latest-Linux-x86_64.sh
 ```bash
 eval "$(/scratch/<your_username>/icomse_knam_session/miniconda3/bin/conda shell.bash hook)"
 conda activate
-conda create -y -n knamsessionenv python=3.12
+conda create -y -n knamsessionenv python=3.13
 conda activate knamsessionenv
 conda install -y -c conda-forge mamba
 module load gcc/13.2.0  # adjust per your system # check which version available with 'module avail gcc' #follow the same with mamba
-mamba install -c conda-forge gcc=13.2.0 gxx=13.2.0 gfortran=13.2.0 openmpi dacase::ambertools-dac=24 make cmake=3.29.6 gawk fftw numpy scipy matplotlib scikit-learn pymbar ipython ipykernel
+mamba install -c conda-forge gcc=13.2.0 gxx=13.2.0 gfortran=13.2.0 openmpi dacase::ambertools-dac=24 make cmake=3.29.6 gawk fftw numpy scipy matplotlib scikit-learn pymbar=3 ipython ipykernel tqdm
 # binutils, sysroot_linux-64=2.17
 ```
 

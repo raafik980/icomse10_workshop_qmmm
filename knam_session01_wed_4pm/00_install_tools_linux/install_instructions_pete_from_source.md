@@ -15,14 +15,14 @@ bash Miniconda3-latest-Linux-x86_64.sh
 ```bash
 eval "$(/scratch/axa5186/icomse_knam_session/miniconda3/bin/conda shell.bash hook)"
 conda activate
-conda create -n knamsessionenv python=3.12
+conda create -n knamsessionenv python=3.13
 conda activate knamsessionenv
 conda install -c conda-forge mamba
 # Note the compatible gcc and openmpi versions with: 'module avail gcc' and 'module avail openmpi'
 module load gcc/13.2.0
-mamba install -c conda-forge  gcc=13.2 gxx=13.2 gfortran=13.2 openmpi=5.0.5 flex bison boost cmake=3.29 make fftw gawk numpy scipy matplotlib scikit-learn pymbar ipython ipykernel
-# If amnstalling amber via conda, you can also install ambertools-dac=25
-# mamba install -c conda-forge  gcc=13.2 gxx=13.2 gfortran=13.2 openmpi=5.0.7 cmake=3.29 make fftw gawk dacase::ambertools-dac=25
+mamba install -c conda-forge  gcc=13.2 gxx=13.2 gfortran=13.2 openmpi=5.0.5 flex bison boost cmake=3.29 make fftw gawk numpy scipy matplotlib scikit-learn pymbar=3 ipython ipykernel tqdm
+# If installing amber via conda, you can also install ambertools-dac=25
+# mamba install -c conda-forge  gcc=13.2 gxx=13.2 gfortran=13.2 openmpi=5.0.7 cmake=3.29 make fftw gawk numpy scipy matplotlib scikit-learn pymbar ipython ipykernel dacase::ambertools-dac=25
 ```
 ---
 ### 3. INSTALL AMBERTOOLS25

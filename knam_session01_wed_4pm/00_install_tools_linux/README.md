@@ -94,7 +94,7 @@ conda create -y -n knamsessionenv python=3.13
 conda activate knamsessionenv
 conda install -y -c conda-forge mamba
 module load gcc/13.2.0  # adjust per your system # check which version available with 'module avail gcc' #follow the same with mamba
-mamba install -c conda-forge gcc=13.2.0 gxx=13.2.0 gfortran=13.2.0 openmpi dacase::ambertools-dac=24 make cmake=3.29.6 gawk fftw numpy scipy matplotlib scikit-learn pymbar=3 ipython ipykernel tqdm
+mamba install -c conda-forge gcc=13.2.0 gxx=13.2.0 gfortran=13.2.0 openmpi dacase::ambertools-dac=24 make cmake=3.29.6 gawk fftw 
 # binutils, sysroot_linux-64=2.17
 ```
 
@@ -171,21 +171,4 @@ module load openmpi-5.0.5 # load the openmpi=5 module available on the remote ma
 /scratch/<your_username>/icomse_knam_session/charmm/c49b2_dftb/bin/charmm
 
 ```
-
 ---
-
-### 3.1. Install Post-Simulation Analysis Tools on the Remote Machine
-
-- **MBAR Python Notebook and Scripts:**
-
-```bash
-cd icomse_knam_session
-wget <github link for python notebook>
-```
-
-- **CATDCD (from VMD) to merge trajectories for viewing/analysis:**
-
-```bash
-cd icomse_knam_session
-wget <github link>
-```

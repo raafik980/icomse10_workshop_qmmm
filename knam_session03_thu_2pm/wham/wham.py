@@ -6,7 +6,7 @@ from collections import defaultdict
 
 # Put this wham.py where cv files exist, change wham path, and just run.
 # Settings
-wham_exe = "/home/dsuh/work/3-Programs/wham/wham/build/wham"  # Change to own path
+wham_exe = ""  # Change to own path
 input_dir = "./"
 output_metadata_file = "metadata.dat"
 output_data_dir = "wham_data"

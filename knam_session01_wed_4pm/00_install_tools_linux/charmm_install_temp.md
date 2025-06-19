@@ -2,6 +2,7 @@
 ```
 module load gcc/13.2.0  # adjust per your system
 module load openmpi/5.0.5 # adjust per your system
+module load cmake3/3.30.5 # newer 3. version 
 
 cd /scratch/axa5186/icomse_knam_session #set your directory
 # Download CHARMM c49b2 from https://brooks.chem.lsa.umich.edu/register/ and copy it to the session directory
